@@ -46,7 +46,7 @@ fun GmailApp(modifier: Modifier) {
         drawerState = drawerState,
 
         drawerContent = {
-            ModalDrawerSheet() {
+            ModalDrawerSheet {
                 GmailDrawerMenu(scrollState)
             }
         }
