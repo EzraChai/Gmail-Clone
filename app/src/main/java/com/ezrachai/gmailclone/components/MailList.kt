@@ -1,6 +1,9 @@
 package com.ezrachai.gmailclone.components
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -32,13 +36,14 @@ import com.ezrachai.gmailclone.model.MailData
 
 
 @Composable
-fun MailList(paddingValues: PaddingValues) {
+fun MailList(paddingValues: PaddingValues, lazyListState: LazyListState) {
     Box(
         modifier = Modifier
             .padding(paddingValues)
             .padding(top = 16.dp)
     ) {
         LazyColumn(
+            state = lazyListState,
             modifier = Modifier
                 .fillMaxSize()
         ) {

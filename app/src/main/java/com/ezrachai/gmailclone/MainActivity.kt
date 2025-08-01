@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalDrawerSheet
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import com.ezrachai.gmailclone.components.GmailDrawerMenu
+import com.ezrachai.gmailclone.components.GmailFab
 import com.ezrachai.gmailclone.components.HomeAppBar
 import com.ezrachai.gmailclone.components.HomeBottomBar
 import com.ezrachai.gmailclone.components.MailList
@@ -37,6 +39,8 @@ fun GmailApp(modifier: Modifier) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
+    val listState = rememberLazyListState()
+
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -50,10 +54,11 @@ fun GmailApp(modifier: Modifier) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = { HomeBottomBar() },
+            floatingActionButton = { GmailFab(listState) },
             topBar = { HomeAppBar(drawerState, coroutineScope) },
         ) {
 
-            MailList(it)
+            MailList(it, listState)
         }
     }
 
