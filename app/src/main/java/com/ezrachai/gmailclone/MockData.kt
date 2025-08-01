@@ -1,6 +1,7 @@
 package com.ezrachai.gmailclone
 
 import com.ezrachai.gmailclone.model.MailData
+import com.ezrachai.gmailclone.model.PersonalEmailData
 
 val emailList = listOf(
     MailData(1, "alice", "Meeting Reminder", "Don't forget our meeting at 10am.", "08:15"),
@@ -55,3 +56,7 @@ val emailList = listOf(
     MailData(50, "judy", "Order Confirmation", "Order confirmed.", "09:48")
 )
 
+val personalEmail = listOf(
+    PersonalEmailData("Chris Morty", "chris@gmail.com", 83),
+    PersonalEmailData("Christy Jane", "jane@gmail.com", 139),
+)
